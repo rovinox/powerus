@@ -4,16 +4,19 @@ import { Carousel } from 'react-responsive-carousel';
 import Items from "./Items"
 
 export default class Home extends Component {
+    constructor(){
+        super()
+    }
     render() {
         return (
             <div>
-                <div style={{height:"100"}}>
+                <div style={{display:"flex", justifyContent:"center"}}>
 
                     <Carousel
                     autoPlay="true"
                     infiniteLoop="true"
                     interval="2000"
-                    width="80vw"
+                    width="70vw"
                     >
                     <div>
                         <img src="https://scontent-lht6-1.cdninstagram.com/v/t51.2885-15/e35/67653225_1100441646821967_956068551785847480_n.jpg?_nc_ht=scontent-lht6-1.cdninstagram.com&se=7&oh=d0dbbafeada04c9d1320cd1a27b5e92a&oe=5DDB7154&ig_cache_key=MjA5NzY1MDY4Nzk0ODI0NDU4MA%3D%3D.2" />

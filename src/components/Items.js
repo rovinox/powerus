@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -15,6 +15,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import axios from "axios"
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -42,12 +43,19 @@ const useStyles = makeStyles(theme => ({
 export default function Items() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
+  const [items, setItems] = React.useState([])
 
   function handleExpandClick() {
     setExpanded(!expanded);
   }
-
+  useEffect(() => {
+      
+    axios.get("api/amp")
+    
+  },[]);
+  
   return (
+    
     <Card className={classes.card}>
       <CardHeader
         avatar={
@@ -72,6 +80,7 @@ export default function Items() {
         <Typography variant="body2" color="textSecondary" component="p">
           This impressive paella is a perfect party dish and a fun meal to cook together with your
           guests. Add 1 cup of frozen peas along with the mussels, if you like.
+
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -98,6 +107,7 @@ export default function Items() {
           <Typography paragraph>
             Heat 1/2 cup of the broth in a pot until simmering, add saffron and set aside for 10
             minutes.
+            
           </Typography>
           <Typography paragraph>
             Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over medium-high
