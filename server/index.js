@@ -2,7 +2,7 @@ require("dotenv").config()
 const express = require("express");
 const session = require("express-session")
 const massive = require("massive");
-
+const cn = require("./controller")
 
 
 const app = express()
@@ -21,6 +21,7 @@ massive(CONNECTING_STRING).then(dbInstance => {
 
 
 
+app.get("/api/amp",cn.getAll)
 
 
 

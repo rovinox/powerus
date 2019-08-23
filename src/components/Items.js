@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
@@ -15,7 +15,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import axios from "axios"
+
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -43,16 +43,12 @@ const useStyles = makeStyles(theme => ({
 export default function Items() {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  const [items, setItems] = React.useState([])
+ 
 
   function handleExpandClick() {
     setExpanded(!expanded);
   }
-  useEffect(() => {
-      
-    axios.get("api/amp")
-    
-  },[]);
+ 
   
   return (
     

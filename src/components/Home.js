@@ -2,20 +2,32 @@ import React, { Component } from 'react'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import Items from "./Items"
+import axios from "axios"
 
 export default class Home extends Component {
     constructor(){
         super()
+        this.state ={
+        amps:[]
+        }
     }
+
+    componentWillMount(){
+        axios.get("/api/amp").then(res =>{
+            console.log("hi");
+          })
+    }
+
     render() {
+        
         return (
             <div>
                 <div style={{display:"flex", justifyContent:"center"}}>
 
                     <Carousel
-                    autoPlay="true"
-                    infiniteLoop="true"
-                    interval="2000"
+                    autoPlay={true}
+                    infiniteLoop={true}
+                    interval={2000}
                     width="70vw"
                     >
                     <div>
