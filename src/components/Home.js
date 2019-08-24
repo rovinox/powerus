@@ -14,7 +14,7 @@ export default class Home extends Component {
 
     componentWillMount(){
         axios.get("/api/amp").then(res =>{
-            console.log("hi");
+            console.log(res);
           })
     }
 

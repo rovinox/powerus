@@ -2,7 +2,7 @@ require("dotenv").config()
 const express = require("express");
 const session = require("express-session")
 const massive = require("massive");
-const cn = require("./controller")
+
 
 
 const app = express()
@@ -13,15 +13,21 @@ const {CONNECTING_STRING, SERVER_PORT} = process.env
 
 
 
-massive(CONNECTING_STRING).then(dbInstance => {
-    app.set("db",dbInstance)
+massive(CONNECTING_STRING).then(db => {
+    app.set("db",db)
     console.log("Database Connected")
 }).catch(error => console.log(error, "database did not connect"))
 
 
 
 
-app.get("/api/amp",cn.getAll)
+app.get("/api/amp", (req, res) =>{
+    const db = req.app.get("db")
+    db.getAmps().then((responce)=>{
+        console.log(responce);
+        res.status(200).json(responce)
+    })
+})
 
 
 
