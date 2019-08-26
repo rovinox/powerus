@@ -3,6 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import Items from "./Items"
 import axios from "axios"
+import { Grid } from "@material-ui/core";
 
 export default class Home extends Component {
     constructor(){
@@ -14,14 +15,21 @@ export default class Home extends Component {
 
     componentWillMount(){
         axios.get("/api/amp").then(res =>{
-            console.log(res);
+            this.setState({amps:res.data})
           })
     }
 
     render() {
+        const {amps} = this.state
+        const displayAmps = amps.map(amp =>{
+            
+            return <Grid item xs={12} sm={6} lg={4} xl={3}>
+        <Items key={amp.amp_id}  amp={amp} /> </Grid>
+            
+        })
         
         return (
-            <div>
+            <div style={{height:"100vh", width:"100vw"}}>
                 <div style={{display:"flex", justifyContent:"center"}}>
 
                     <Carousel
@@ -44,10 +52,10 @@ export default class Home extends Component {
                     </div>
                     </Carousel>
                 </div>
+                <Grid container spacing={3} style={{padding: 78}}>
+                {displayAmps} 
+                </Grid>
                    
-                    <div>
-                        <Items/>
-                    </div>
             </div>
         )
     }
