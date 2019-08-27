@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Items(props) {
-  console.log(props);
+  
   const classes = useStyles();
   
  

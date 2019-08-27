@@ -24,11 +24,21 @@ massive(CONNECTING_STRING).then(db => {
 app.get("/api/amp", (req, res) =>{
     const db = req.app.get("db")
     db.getAmps().then((responce)=>{
-        console.log(responce);
+        
         res.status(200).json(responce)
     })
 })
 
+app.get("/api/amp/:id", (req, res) =>{
+    const db = req.app.get("db")
+       
+        db.getting_one(+req.params.id).then(responce =>{
+            
+            res.status(200).json(responce)
+            
+        })
+
+})
 
 
 

@@ -29,14 +29,14 @@ export default class Home extends Component {
         })
         
         return (
-            <div style={{height:"100vh", width:"100vw"}}>
+            <div  style={{height:"100vh", width:"100vw",}}>
                 <div style={{display:"flex", justifyContent:"center"}}>
 
                     <Carousel
                     autoPlay={true}
                     infiniteLoop={true}
                     interval={3000}
-                    width="50vw"
+                    width="40vw"
                     transitionTime={500}
                     >
                     <div>

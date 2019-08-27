@@ -1,0 +1,1 @@
+SELECT * FROM amplifier WHERE amp_id = $1;

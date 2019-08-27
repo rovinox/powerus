@@ -30,19 +30,12 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
-export default function IndividualAmp(props) {
+export default function DisplaySingleItem(props) {
 
     const classes = useStyles();
-   const [item, setItem] = useState([])
+  
 
-    useEffect(() => {
-        axios.get(`/api/amp/${props.match.params.id}`).then(res =>{
-            console.log(res);
-            setItem(res.data)
-        }).catch(err =>{console.log(err)})
-
-      },[]);
-    console.log(item[0]);
+    
 
     return (
         <div className={classes.root}>
