@@ -7,6 +7,7 @@ const massive = require("massive");
 
 const app = express()
 app.use(express.json())
+app.use( express.static( `${__dirname}/../build` ) );
 const {CONNECTING_STRING, SERVER_PORT} = process.env
 
 
@@ -40,7 +41,9 @@ app.get("/api/amp/:id", (req, res) =>{
 
 })
 
-
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+  });
 
 
 app.listen(SERVER_PORT, () => console.log(`Listening on ${SERVER_PORT}`))
