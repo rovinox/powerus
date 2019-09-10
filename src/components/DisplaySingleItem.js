@@ -6,56 +6,52 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import TextField from '@material-ui/core/TextField';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+import StripeCheckout from "react-stripe-checkout";
 
 
-
-const useStyles = makeStyles(theme => ({
-    root: {
-      flexGrow: 1,
-      
-    },
-    paper: {
-      padding: theme.spacing(3),
-      margin: 'auto',
-      maxWidth: "100%",
-    },
-    image: {
-      width: "50%",
-      height: "50%",
-    },
-    img: {
-      margin: 'auto',
-      display: 'block',
-      maxWidth: '100%',
-      maxHeight: '100%',
-    },
-  }));
 
 export default function DisplaySingleItem(props) {
 
-    const classes = useStyles();
+    
   
   console.log(props.details);
     
 
     return (
-      <div>
+      <div style={{background:"black"}}>
         <Grid container spacing={10}>
         <Grid item xs={12} sm={6}>
-        <img style={{maxHeight:"800px",}} src={props.image}/>
+        <Carousel >
+                    <div>
+                        <img src={props.image} />
+                        <p className="legend">Legend 1</p>
+                    </div>
+                    
+                    </Carousel>
         </Grid>
-        <Grid item xs={12} sm={6}>
-        <Typography>
-          {props.title}
-        </Typography>
-       <Typography>
+        <Grid item xs={12} sm={6} direction="column" color="primary" style={{marginTop:"40px"}}>
+        <Typography variant="h3" color="primary" style={{marginTop:"40px"}} >
+          {props.title }
+        </Typography  >
+       <Typography style={{marginTop:"40px", color:"white"}} >
           {props.details}
         </Typography>
-        <Typography>
-          {props.price}
+        <Typography variant="h3" style={{marginTop:"40px", color:"white"}}>
+          ${props.price}
         </Typography>
+        <Typography>
+          <StripeCheckout
+          billingAddress
+          shippingAddress
+          style={{marginTop:"40px"}} 
+          />
+        </Typography>
+        
         </Grid>
         </Grid>
+        
       </div>
     )
 }
