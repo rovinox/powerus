@@ -4,7 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 import Items from "./Items"
 import axios from "axios"
 import { Grid } from "@material-ui/core";
-import Link from "react-router-dom"
+import {Link} from "react-router-dom"
 
 export default class Home extends Component {
     constructor(){
@@ -28,6 +28,8 @@ export default class Home extends Component {
         <Items key={amp.amp_id}  amp={amp} /> </Grid>
             
         })
+
+       
         
         return (
             <div  style={{height:"100vh", width:"100vw", background:"black"}}>
@@ -40,11 +42,12 @@ export default class Home extends Component {
                     width="40vw"
                     transitionTime={500}
                     >
+                      
                     <div>
-                        
                         <img src="https://scontent-lht6-1.cdninstagram.com/v/t51.2885-15/e35/67653225_1100441646821967_956068551785847480_n.jpg?_nc_ht=scontent-lht6-1.cdninstagram.com&se=7&oh=d0dbbafeada04c9d1320cd1a27b5e92a&oe=5DDB7154&ig_cache_key=MjA5NzY1MDY4Nzk0ODI0NDU4MA%3D%3D.2" />
                         <p className="legend">Legend 1</p>
                     </div>
+                       
                     <div>
                         <img src="https://http2.mlstatic.com/powerus-pw2500-1-ohm-D_NQ_NP_761466-MLM28552680388_112018-F.jpg" />
                         <p className="legend">Legend 2</p>
